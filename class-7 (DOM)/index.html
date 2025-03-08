@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Javascript Dom</title>
+</head>
+
+<body>
+ <h1 id="heading">DOM</h1>
+ <p id="text">This is a paragraph</p>
+ <p class="paragraph">This is a paragraph</p>
+ <p class="paragraph">This is a paragraph</p>
+ <p class="paragraph">This is a paragraph</p>
+ <p class="paragraph">This is a paragraph</p>
+ <p>This is a paragraph</p>
+ <button class="btn" id="btn"> let's learn DOM</button>
+
+</body>
+<script>
+ let title = document.getElementsByTagName("p");
+ console.log(title);
+ title[2].innerText = "Let's Learn DOM";
+
+ let heading = document.getElementById("heading");
+ console.log(heading);
+
+ heading.innerText = "Document Object Model";
+ heading.style.color = "red";
+ heading.style.backgroundColor = "yellow";
+ heading.style.fontSize = "50px";
+
+ let text = document.getElementById("text");
+ text.style.color = "blue";
+
+ let paragraph = document.getElementsByClassName("paragraph");
+ paragraph[2].style.color = "green";
+
+ console.log(paragraph);
+
+ const btn = document.querySelector("#btn"); // # button 
+ // const btn = document.querySelector(".btn"); // . class এই দুইটার পার্থক্য কি দাড়ায় ?
+ console.log(btn);
+
+
+ const para = document.querySelectorAll("p");
+ console.log(para[0]);
+
+
+</script>
+
+</html>

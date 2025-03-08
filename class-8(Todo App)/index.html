@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Todo App</title>
+ <!-- <script src="https://unpkg.com/@tailwindcss/browser@4">"v4 tailwindcss Version"</script> -->
+ <script src="https://cdn.tailwindcss.com">"v3.4017 tailwindcss Version"</script>
+ <style type="text/tailwindcss">
+  @layer components{
+   .task-list{
+    @apply flex border bg-gray-100 rounded-md;
+   }
+   .task-input{
+    @apply w-full border-gray-300 py-2.5 pe-10 sm:text-sm px-2 bg-transparent line-through ;  
+   }
+   .button-group{
+    @apply flex gap-2 p-1;
+   }
+   .edit-btn {
+    @apply bg-blue-500 text-white hover:bg-blue-700 px-4 rounded-md;
+   }
+   .delete-btn {
+    @apply bg-red-500 text-white hover:bg-red-700 px-4 rounded-md;
+   }
+  }
+ </style>
+
+</head>
+
+<body>
+ <main>
+  <!-- Add Task List -->
+  <section>
+   <h2 class="text-center text-3xl bg-slate-500 py-3"> My Task List📑</h2>
+
+   <!-- <div class="relative max-w-2xl mx-auto ">
+
+    <label for="task-input" class="sr-only"> Search </label>
+
+    <input type="text" id="task-input" placeholder="Add task"
+     class="w-full rounded-md border border-gray-900 py-2.5 pe-10 sm:text-sm px-2" />
+
+    <span class="absolute inset-y-0 end-0 grid w-20 bg-gray-900 text-white  place-content-center">
+
+     <button type="button" class="text-white hover:text-gray-300" id="add-task">Add Task
+     </button>
+
+    </span>
+   </div> -->
+
+   <div class="relative max-w-2xl mx-auto ">
+    <form id="task-form">
+     <label for="task-input" class="sr-only"> Search </label>
+
+     <input type="text" id="task-input" placeholder="Add task"
+      class="w-full rounded-md border border-gray-900 py-2.5 pe-10 sm:text-sm px-2" />
+
+     <span class="absolute inset-y-0 end-0 grid w-20 bg-gray-900 text-white  place-content-center">
+
+      <button type="button" class="text-white hover:text-gray-300" id="add-task" type="submit">
+       Add Task
+      </button>
+
+     </span>
+    </form>
+
+
+   </div>
+  </section>
+
+  <!-- Task List Container -->
+  <section>
+   <div class="max-w-2xl mx-auto mt-6 flex flex-col gap-2" id="task-container">
+    <!-- <div class="task-list ">
+
+     <input type="text" class="task-input" value="Task 1" readonly="readonly" />
+
+     <div class="button-group">
+
+
+      <button type="button" class="edit-btn"> Edit
+      </button>
+
+
+      <button type="button" class="delete-btn"> Delete
+      </button>
+
+
+     </div>
+    </div> -->
+
+   </div>
+  </section>
+ </main>
+
+
+ <!-- <script src="index.js"></script>
+ <script src="app.js"></script> -->
+
+
+ <!-- app.JS  -->
+ <!-- <script>
+  // selectors
+  const taskInput = document.getElementById("task-input");
+  const addTaskBtn = document.getElementById("add-task");
+  const taskContainer = document.getElementById("task-container");
+
+
+  // create a task
+  function createTask() {
+   const task = taskInput.value;
+   if (task) {
+    console.log(task);
+
+    // create a task div
+
+    const taskDiv = document.createElement("div");
+    // taskDiv.innerText = "new task div added!";
+    taskDiv.classList.add("task-list");
+    // taskDiv.classList.add("flex", "border", "bg-gray-400"); // multiple css type approch method 
+
+    // create a task input field
+
+    const taskName = document.createElement("input");
+    taskName.value = task;
+    taskName.classList.add("task-input");
+
+    taskName.setAttribute("readonly", "readonly");
+
+    taskDiv.appendChild(taskName);
+
+
+    // create a button group
+    const taskButtonGroup = document.createElement("div");
+    // taskDiv.innerText = "new task div added!";
+    taskButtonGroup.classList.add("button-group");
+    taskDiv.appendChild(taskButtonGroup);
+
+
+    // create a edit button
+    const editBtn = document.createElement("button");
+    // taskDiv.innerText = "new task div added!";
+    editBtn.classList.add("edit-btn");
+    editBtn.innerText = "Edit";
+    taskButtonGroup.appendChild(editBtn);
+
+    // create a delete button
+    const deleteBtn = document.createElement("button");
+    // taskDiv.innerText = "new task div added!";
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.innerText = "Delete";
+    taskButtonGroup.appendChild(deleteBtn);
+
+
+
+
+    taskContainer.appendChild(taskDiv);
+
+    taskInput.value = "";
+
+    // delete task
+
+    // deleteBtn.addEventListener("click", function () {
+    //  console.log("delete button clicked");
+    // });
+
+    deleteBtn.addEventListener("click", function (e) {
+     e.target.parentElement.parentElement.remove();
+    });
+
+    // edit task
+    editBtn.addEventListener("click", function (e) {
+     console.log("edit button clicked!");
+     console.log(e, e.target);
+     if (e.target.innerText === "Edit") {
+      taskName.removeAttribute("readonly");
+      taskName.focus();
+      editBtn.innerText = "Update";
+     } else {
+      editBtn.innerText = "Edit";
+      taskName.setAttribute("readonly", "readonly");
+
+     }
+    });
+
+   } else {
+    alert("Please enter a task");
+    return;
+   }
+  }
+
+  addTaskBtn.addEventListener("click", createTask);
+
+ </script> -->
+
+
+ <!-- app.JS  -->
+ <script>
+
+  // selectors
+  const taskInput = document.getElementById("task-input");
+  const addTaskBtn = document.getElementById("add-task");
+  const taskContainer = document.getElementById("task-container");
+  const taskForm = document.getElementById("task-form");
+
+  // create a task
+
+  taskForm.addEventListener("submit", function (e) {
+   // console.log(e);
+   // console.log("submitting...");
+   e.preventDefault(); // prevent form from submitting with reloading / refreshing
+
+   const inputValue = taskInput.value;
+   if (inputValue) {
+    console.log("working.....");
+
+
+    const taskDiv = `
+    <div class="task-list">
+     <input 
+     type="text" 
+     class="task-input" 
+     value="${taskInput.value}"
+     readonly="readonly" 
+     />
+     <div class="button-group">
+      <button type="button" class="edit-btn">Edit</button>
+      <button type="button" class="delete-btn">Delete</button>
+      <button type="button" class="delete-btn">Done</button>
+     </div>
+    </div>`;
+
+    taskContainer.insertAdjacentHTML("beforebegin", taskDiv)
+
+    // selectors
+    const deleteBtn = document.querySelectorAll(".delete-btn");
+    const editBtn = document.querySelectorAll(".edit-btn");
+
+
+    // console.log(deleteBtn);
+
+
+    // Delete a task 
+    deleteBtn.forEach(btn => { // for each ta aktu buzbo aiman vai ??????????????
+     btn.addEventListener("click", function (e) {
+      // console.log("deleting task....");
+      // console.log(e.target.parentElement.parentElement);
+      // e.target.remove();
+      e.target.parentElement.parentElement.remove();
+     });
+    });
+
+    // Edit a task
+
+    // console.log(editBtn);
+    // editBtn[0].innerHTML = "test";
+
+    editBtn.forEach(btn => { // for each ta aktu buzbo aiman vai ?????????
+     btn.addEventListener("click", function (e) {
+      // console.log(e.target.parentNode.parentNode.firstElementChild);
+      let task = (e.target.parentNode.parentNode.firstElementChild);
+
+      if (e.target.innerText === "Edit") {
+       task.removeAttribute("readonly");
+       task.focus();
+       btn.innerText = "Save";
+      } else {
+       btn.innerText = "Edit";
+       task.setAttribute("readonly", "readonly");
+      }
+     });
+    });
+
+
+
+
+   } else {
+    alert("Please insert an value...");
+   }
+   taskInput.value = "";
+
+   // let task = ;
+
+   // create a new task
+
+  });
+ </script>
+
+
+
+
+
+
+</body>
+
+</html>

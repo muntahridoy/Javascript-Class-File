@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Calculator</title>
+ <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+ <section class="w-[500px] mx-auto mt-10 shadow-lg p-5">
+  <h2 class="text-center font-bold font-serif text-4xl text--900">Simple Calculator</h2>
+  <div class="flex justify-center items-center space-x-5 mt-5">
+   <input type="number" id="input1" class="border border-gray-300 p-2 w-[200px]" placeholder="Enter first number"
+    value="20">
+   <input type="number" id="input2" class="border border-gray-300 p-2 w-[200px]" placeholder="Enter second number"
+    value="30">
+  </div>
+
+
+
+  <div class="flex justify-center items-center space-x-5 mt-5">
+   <!-- <button class="bg-black text-white px-4 py-2 hover:opacity-80 duration-500" id="btn"
+    onclick="calculate()">Calculate</button> -->
+   <button class="bg-black text-white px-4 py-2 hover:opacity-80 duration-500" id="btn" onclick="addition()">+</button>
+   <button class="bg-black text-white px-4 py-2 hover:opacity-80 duration-500" id="btn"
+    onclick="subtraction()">-</button>
+   <button class="bg-black text-white px-4 py-2 hover:opacity-80 duration-500" id="btn"
+    onclick="multiplication()">*</button>
+   <button class="bg-black text-white px-4 py-2 hover:opacity-80 duration-500" id="btn" onclick="division()">/</button>
+
+
+
+
+   <button class="bg-black text-white px-4 py-2 hover:opacity-80 duration-500" onclick="clearAll()"> C</button>
+  </div>
+
+
+
+  <div class="flex justify-center items-center space-x-5 mt-5">
+   <h3 class="text-center mt-5">Result <span class="font-semibold " id="result"> 0</span></h3>
+
+   <!-- <h3 class="text-center mt-5">Addition<span class="font-semibold" id="addition"> 0</span></h3>
+   <h3 class="text-center mt-5">subtraction<span class="font-semibold" id="subtraction"> 0</span></h3>
+   <h3 class="text-center mt-5">multiplication<span class="font-semibold" id="multiplication"> 0</span></h3>
+   <h3 class="text-center mt-5">division<span class="font-semibold" id="division"> 0</span></h3> -->
+  </div>
+ </section>
+
+
+ <script>
+  const input1 = document.getElementById("input1");
+  const input2 = document.getElementById("input2");
+  const btn = document.getElementById("btn");
+  const result = document.getElementById("result");
+
+  function addition() {
+   let addition = parseInt(input1.value) + parseInt(input2.value);
+   result.innerText = addition;
+  }
+  function subtraction() {
+   let subtraction = parseInt(input1.value) - parseInt(input2.value);
+   result.innerText = subtraction;
+  }
+  function multiplication() {
+   let multiplication = parseInt(input1.value) * parseInt(input2.value);
+   result.innerText = multiplication;
+  }
+  function division() {
+   let division = parseInt(input1.value) / parseInt(input2.value);
+   result.innerText = division.toFixed(3);
+  }
+
+  function clearAll() {
+   // console.log("clearing..."); // testing clear
+   result.innerText = "0";
+   input1.value = "";
+   input2.value = "";
+  }
+
+  // console.log(input1, input2);
+  // console.log(typeof input1.value);
+
+
+  // function calculate() {
+  //  let addition = parseInt(input1.value) + parseInt(input2.value);
+  //  let subtraction = parseInt(input1.value) - parseInt(input2.value);
+  //  let multiplication = parseInt(input1.value) * parseInt(input2.value);
+  //  let division = parseInt(input1.value) / parseInt(input2.value);
+
+  //  document.getElementById("addition").innerText = addition;
+  //  document.getElementById("subtraction").innerText = subtraction;
+  //  document.getElementById("multiplication").innerText = multiplication;
+  //  document.getElementById("division").innerText = division.toFixed(2);
+
+  //  // result.innerText = addition;
+  //  input1.value = "";
+  //  input2.value = "";
+  // }
+  // console.log(addition);
+
+
+ </script>
+
+</body>
+
+</html>

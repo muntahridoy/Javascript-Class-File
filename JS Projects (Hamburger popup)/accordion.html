@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
+ <title>Accordion</title>
+</head>
+
+<body>
+ <style>
+  * {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+  }
+
+  body {
+   font-family: 'Reddit Mono', monospace;
+  }
+
+  .container {
+   max-width: 900px;
+   margin: auto;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
+
+  .accordion {
+   max-width: 700px;
+   margin: auto;
+   background-color: black;
+   color: White;
+   padding: 1rem;
+   transition: all .5 ease;
+   border-radius: 15px;
+   /* height: 100px; */
+   overflow: hidden;
+  }
+
+  .accordion-title {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+  }
+
+  .accordion-content {
+   margin-top: 30px;
+   /* background-color: blueviolet; */
+   border: 1px solid sandybrown;
+   padding: 1rem;
+   border-radius: 5px;
+   display: none;
+   /* height: 0;
+   visibility: hidden; */
+  }
+
+  .close-icon {
+   width: 23px;
+   height: 5px;
+   display: inline-block;
+   background-color: rgb(255, 255, 255);
+   display: none;
+   cursor: pointer;
+  }
+
+  .open-icon {
+   cursor: pointer;
+   width: 40px;
+   color: white;
+   transition: all .5s ease;
+  }
+
+  .open-icon:hover {
+   transform: rotate(120deg);
+   color: red;
+  }
+ </style>
+ <section class="container">
+  <div class="accordion">
+   <div class="accordion-title">
+    <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, hic.</h2>
+    <div class="icon">
+     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="open-icon">
+      <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
+     </svg>
+     <span class="close-icon"></span>
+    </div>
+   </div>
+
+
+
+
+   <div class="accordion-content">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus veniam similique autem tempore, dolores
+     distinctio, et amet iusto mollitia provident, enim eligendi voluptatum rerum dolorem alias voluptate. Blanditiis
+     repellat sequi consequuntur quia, similique fugiat corrupti ea, nostrum incidunt deleniti dolorem!</p>
+   </div>
+  </div>
+ </section>
+
+ <script>
+  const openIcon = document.getElementsByClassName("open-icon");
+  const closeIcon = document.getElementsByClassName("close-icon");
+  const accordion = document.getElementsByClassName("accordion-content");
+
+
+
+  // akhane [0] atar index ta kiser  ?????????????
+
+  openIcon[0].addEventListener("click", () => {
+   accordion[0].style.display = "block";
+   openIcon[0].style.display = "none";
+   closeIcon[0].style.display = "inline-block";
+
+  });
+  closeIcon[0].addEventListener("click", () => {
+   accordion[0].style.display = "none";
+   openIcon[0].style.display = "block";
+   closeIcon[0].style.display = "none";
+
+  });
+
+
+
+
+
+ </script>
+</body>
+
+</html>
