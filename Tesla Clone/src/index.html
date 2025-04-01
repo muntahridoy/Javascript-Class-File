@@ -1,16 +1,82 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link href="./output.css" rel="stylesheet">
+ <title>Tesla Clone</title>
+ <script src="https://cdn.tailwindcss.com"></script>
+ <style>
+  .hero {
+   height: 100vh;
+   background-size: cover;
+   background-position: center;
+  }
+ </style>
 </head>
 
-<body>
- <h1 class="text-3xl font-bold underline">
-  Hello world!
- </h1>
+<body class="bg-black text-white">
+ <!-- Navigation Bar -->
+ <nav class="fixed w-full flex justify-between items-center p-4 bg-black bg-opacity-75 z-50">
+  <h1 class="text-xl font-bold">TESLA</h1>
+  <ul class="flex space-x-4">
+   <li><a href="#" class="hover:underline">Model S</a></li>
+   <li><a href="#" class="hover:underline">Model 3</a></li>
+   <li><a href="#" class="hover:underline">Model X</a></li>
+   <li><a href="#" class="hover:underline">Model Y</a></li>
+  </ul>
+ </nav>
+
+ <!-- Sections -->
+ <section class="hero" style="background-image: url('./img/Homepage-Model-Y-Desktop-NA-v3.avif');">
+  <div class="flex flex-col items-center justify-center h-full text-center">
+   <h1 class="text-5xl font-bold">Model S</h1>
+   <p class="text-lg">Free Supercharging Included</p>
+   <div class="mt-4 space-x-4">
+    <button class="bg-blue-500 px-6 py-2 rounded">Order Now</button>
+    <button class="bg-gray-700 px-6 py-2 rounded">Learn More</button>
+   </div>
+  </div>
+ </section>
+
+
+ <section class="hero"
+  style="background-image: url('https://tesla.com/sites/default/files/modelsx-new/social/model-s-hero-social.jpg');">
+  <div class="flex flex-col items-center justify-center h-full text-center">
+   <h1 class="text-5xl font-bold">Model 3</h1>
+   <p class="text-lg">Free Supercharging Included</p>
+   <div class="mt-4 space-x-4">
+    <button class="bg-blue-500 px-6 py-2 rounded">Order Now</button>
+    <button class="bg-gray-700 px-6 py-2 rounded">Learn More</button>
+   </div>
+  </div>
+ </section>
+
+ <section class="hero" style="background-image: url('./img/Cybertruck-Second-Hero-Desktop.avif');">
+  <div class="flex flex-col items-center justify-center h-full text-center">
+   <h1 class="text-5xl font-bold">Model X</h1>
+   <p class="text-lg">$249/mo Leasing</p>
+   <div class="mt-4 space-x-4">
+    <button class="bg-blue-500 px-6 py-2 rounded">Order Now</button>
+    <button class="bg-gray-700 px-6 py-2 rounded">Learn More</button>
+   </div>
+  </div>
+ </section>
+
+ <section class="hero" style="background-image: url('./img/home-charging-energize-savings-desktop.avif');">
+  <div class="flex flex-col items-center justify-center h-full text-center">
+   <h1 class="text-5xl font-bold">Model Y</h1>
+   <p class="text-lg">Free Supercharging Included</p>
+   <div class="mt-4 space-x-4">
+    <button class="bg-blue-500 px-6 py-2 rounded">Order Now</button>
+    <button class="bg-gray-700 px-6 py-2 rounded">Learn More</button>
+   </div>
+  </div>
+ </section>
+
+ <footer class="p-4 text-center bg-black text-gray-400">
+  <p>&copy; 2025 Tesla. All Rights Reserved.</p>
+ </footer>
 </body>
 
 </html>

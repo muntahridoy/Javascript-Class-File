@@ -84,4 +84,3 @@ if (searchValue == true) {
 } else {
   console.log(search, "has not been found in the sentence");
 }
-
